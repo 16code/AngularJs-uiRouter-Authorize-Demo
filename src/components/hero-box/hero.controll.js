@@ -1,37 +1,44 @@
 class HeroController {
-    constructor($scope, $element, $attrs) {
+    constructor($scope, $element, $attrs, $rootScope, $timeout) {
         'ngInject';
         Object.assign(this, {
             $scope,
             $element,
-            $attrs
+            $attrs,
+            $rootScope,
+            $timeout
         });
         this.activate();
     }
     activate() {
-        HeroController.parallaxScroll(this.$element[0]);
+        this.parallaxScroll();
     }
-    static parallaxScroll(el) {
-        const $window = window;
+    parallaxScroll() {
+        const self = this;
         const html = document.documentElement;
-        const body = document.body;
-        const effectEle = el.querySelector('.intro');
-        const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.scrollHeight, html.offsetHeight);
-        const requestAnimationFrame = $window.requestAnimationFrame || $window.msRequestAnimationFrame;
+        const header = document.querySelector('#page-header');
+        const effectEle = this.$element[0].querySelector('.intro');
+        const pageHeight = html.scrollHeight;
+        const requestAnimationFrame = window.requestAnimationFrame || window.msRequestAnimationFrame;
         let lastScrollTop = -1;
         if (requestAnimationFrame) {
             loop();
         }
 
         function loop() {
-            const scrollTop = $window.pageYOffset || html.scrollTop || body.scrollTop;
+            const scrollTop = window.pageYOffset || html.scrollTop;
             if (lastScrollTop === scrollTop) {
-                requestAnimationFrame(loop);
+                self.$timeout(requestAnimationFrame(loop));
             } else {
                 lastScrollTop = scrollTop;
-                const scrollingPercentage = -(scrollTop * 1000 / pageHeight);
-                effectEle.style.transform = `translate3d(0, ${scrollingPercentage}px, 0)`;
-                requestAnimationFrame(loop);
+                const scrollingStyle = `translate3d(0, ${-(scrollTop * 1000 / pageHeight)}px, 0)`;
+                effectEle.style.transform = header.style.transform = scrollingStyle;
+                if (scrollTop >= effectEle.offsetHeight) {
+                    self.$rootScope.transparentHeader = false;
+                } else {
+                    self.$rootScope.transparentHeader = true;
+                }
+                self.$timeout(requestAnimationFrame(loop));
             }
         }
     }

@@ -1,5 +1,11 @@
-<header class="page-header" ui-view="header"></header>
+<header id="page-header"
+    class="page-header"
+    ng-class="{'transparent': transparentHeader, 'fixed-header': !transparentHeader}"
+    ui-view="header"></header>
 <div class="main-container">
-    <div class="page-main" ui-view="main"></div>
+    <div class="page-main"
+        id="page-main"
+        ui-view="main"></div>
 </div>
-<footer class="page-footer" ui-view="footer"></footer>
+<footer class="page-footer"
+    ui-view="footer"></footer>

@@ -1,8 +1,57 @@
 @backgroundColor: #2b2b2b;
 @color: #fff;
 .page-header {
-    height: 54px;
-    background-color: @backgroundColor;
-    color: @color;
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    padding: 0.5rem 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    &.transparent {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    &.fixed-header {
+        z-index: 9998;
+        background-color: rgba(255, 255, 255, 0.97);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        transform: none !important;
+        .animation();
+    }
+}
+#brand h1 a,
+.page-header nav > li > a {
+    color: #333;
+    text-decoration: none;
+}
+#brand h1 {
+    font-size: 1.556em;
+    line-height: 3rem;
+    font-weight: normal;
+}
+.transparent {
+    #brand h1 a,
+    .page-header nav > li > a {
+        color: @color;
+        text-decoration: none;
+    }
+    #brand h1 {
+        font-size: 1.556em;
+        line-height: 3rem;
+    }
+}
+.animation {
+    animation: fadeInDown 0.5s ease both;
+}
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
