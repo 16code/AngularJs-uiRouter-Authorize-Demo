@@ -1,5 +1,5 @@
-# AngularJs-uiRouter-Authorize-Demo
-> Webpack + Angularjs + uiRouter + ES6 用户登录验证以及路由访问权限控制演示程序
+# angular-webpack-es6-demo
+> Webpack + Angularjs + uiRouter + ES6 种子程序
 
 ## 安装安装
 

@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-uirouter-authorize-demo",
+  "name": "angular-webpack-es6-demo",
   "version": "1.0.0",
-  "description": "AngularJs uiRouter Authorize Demo",
+  "description": "Angular Webpack ES6 Demo",
   "main": "src/index.js",
   "engines": {
     "node": ">=0.12.9",
