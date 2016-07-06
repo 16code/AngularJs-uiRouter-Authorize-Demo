@@ -40,7 +40,7 @@ class HeroController {
                 self.$timeout(requestAnimationFrame(loop));
             } else {
                 lastScrollTop = scrollTop;
-                const scrollingStyle = `translate3d(0, ${-(scrollTop * 1000 / pageHeight)}px, 0)`;
+                const scrollingStyle = `translate3d(0, ${-((scrollTop * 1000) / pageHeight)}px, 0)`;
                 effectEle.style.transform = header.style.transform = scrollingStyle;
                 if (scrollTop >= effectEle.offsetHeight) {
                     self.$rootScope.transparentHeader = false;

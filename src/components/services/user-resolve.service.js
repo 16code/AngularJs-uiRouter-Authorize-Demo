@@ -1,9 +1,9 @@
 class ResolveService {
-    login ($q) {
+    login($q) {
         'ngInject';
-        return _error;
+        return error;
 
-        function _error () {
+        function error() {
             return $q.reject('requireLogin');
         }
     }

@@ -1,9 +1,9 @@
-function appHomeRun (RouterHelper) {
+function appHomeRun(RouterHelper) {
     'ngInject';
     RouterHelper.configureStates(getStates());
 }
 
-function getStates () {
+function getStates() {
     return [
         {
             state: 'root.layout.home',
@@ -23,13 +23,13 @@ function getStates () {
                 },
                 data: {
                     title: 'Home',
-                    _class: 'home'
+                    className: 'home'
                 },
                 resolve: {
                     loadModule: ['$q', '$ocLazyLoad', ($q, $ocLazyLoad) => {
                         return $q((resolve) => {
                             require.ensure([], () => {
-                                $ocLazyLoad.load({name: require('./index').default});
+                                $ocLazyLoad.load({ name: require('./index').default });
                                 resolve();
                             }, 'home');
                         });

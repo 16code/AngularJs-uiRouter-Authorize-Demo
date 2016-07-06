@@ -2,7 +2,7 @@ import angular from 'angular';
 
 const [handlingStateChangeError, hasOtherwise, stateCounts] = [Symbol(), Symbol(), Symbol()];
 class RouterHelper {
-    constructor (config, $stateProvider, $urlRouterProvider, $rootScope, $state, LoginResolve) {
+    constructor(config, $stateProvider, $urlRouterProvider, $rootScope, $state, LoginResolve) {
         Object.assign(this, {
             config,
             $stateProvider,
@@ -22,7 +22,7 @@ class RouterHelper {
         this.updateDocTitle();
     }
 
-    configureStates (states, otherwisePath) {
+    configureStates(states, otherwisePath) {
         const self = this;
         states.forEach((state) => {
             // 添加登录检查 requireLogin is true
@@ -30,7 +30,7 @@ class RouterHelper {
             if (data && data.requireLogin === true) {
                 state.config.resolve = angular.extend(
                     state.config.resolve || {},
-                    {loginResolve: self.LoginResolve.login}
+                    { loginResolve: self.LoginResolve.login }
                 );
             }
             state.config.resolve = angular.extend(state.config.resolve || {}, self.config.resolveAlways);
@@ -42,7 +42,7 @@ class RouterHelper {
         }
     }
 
-    handleRoutingErrors () {
+    handleRoutingErrors() {
         // 错误路由处理
         this.$rootScope.$on('$stateChangeError',
             (event, toState, toParams, fromState, fromParams, error) => {
@@ -78,17 +78,17 @@ class RouterHelper {
         });
     }
 
-    getStates () {
+    getStates() {
         return this.$state.get();
     }
 
-    updateDocTitle () {
+    updateDocTitle() {
         this.$rootScope.$on('$stateChangeSuccess',
             (event, toState) => {
                 this[stateCounts].changes++;
                 this[handlingStateChangeError] = false;
                 const title = `${toState.data.title} - ${this.config.mainTitle}`;
-                const pageClass = toState.data._class || 'default';
+                const pageClass = toState.data.className || 'default';
                 // 更新文档 title && class，可以利用 page class 变换不同页面表现样式
                 this.$rootScope.title = title;
                 this.$rootScope.pageClass = pageClass;
@@ -98,9 +98,9 @@ class RouterHelper {
 }
 
 class RouterHelperProvider {
-    constructor ($locationProvider, $stateProvider, $urlRouterProvider) {
+    constructor($locationProvider, $stateProvider, $urlRouterProvider) {
         'ngInject';
-        Object.assign(this, {$locationProvider, $stateProvider, $urlRouterProvider});
+        Object.assign(this, { $locationProvider, $stateProvider, $urlRouterProvider });
 
         this.config = {
             mainTitle: '',
@@ -109,11 +109,11 @@ class RouterHelperProvider {
         this.$locationProvider.html5Mode(true);
     }
 
-    configure (cfg) {
+    configure(cfg) {
         angular.extend(this.config, cfg);
     }
 
-    $get ($rootScope, $state, LoginResolve) {
+    $get($rootScope, $state, LoginResolve) {
         'ngInject';
         return new RouterHelper(
             this.config, this.$stateProvider, this.$urlRouterProvider,
