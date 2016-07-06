@@ -1,0 +1,6 @@
+{
+  "name": "Angular-webpack-es6-demo",
+  "tagline": "Webpack + Angularjs + uiRouter + ES6 种子程序",
+  "body": "# angular-webpack-es6-demo\r\n> Webpack + Angularjs + uiRouter + ES6 种子程序\r\n\r\n## 安装安装\r\n\r\n```bash\r\ngit clone https://github.com/16code/AngularJs-uiRouter-Authorize-Demo.git myAngularApp\r\ncd myAngularApp\r\nnpm install -g webpack eslint\r\nnpm install\r\n```\r\n\r\n## 启动web服务\r\n```bash\r\nnpm start\r\n```\r\n使用浏览器访问URL `http://localhost:8080/webpack-dev-server/`查看效果\r\n\r\n## 项目打包\r\n```bash\r\nnpm run build\r\n```\r\n打包文件会放进项目的 `dist` 目录用于直接部署\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
