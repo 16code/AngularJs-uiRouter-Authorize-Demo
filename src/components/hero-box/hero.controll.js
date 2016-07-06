@@ -11,6 +11,15 @@ class HeroController {
         this.activate();
     }
     activate() {
+        // 如果没有传入数据，那么就展示默认
+        this.heroData = this.heroData || {
+            background: require('../../assets/images/hero.jpg'),
+            subject: 'Webpack + Angular + UiRouter + ES6最佳实践!',
+            intro: '用户登录验证以及路由访问权限控制演示程序'
+        };
+        if (!this.heroData) {
+            console.log('heroData is required');
+        }
         this.parallaxScroll();
     }
     parallaxScroll() {

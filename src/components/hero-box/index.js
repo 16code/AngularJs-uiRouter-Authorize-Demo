@@ -3,7 +3,9 @@ import './hero.less';
 import HeroControll from './hero.controll';
 
 const HeroComponent = {
-    bindings: true,
+    bindings: {
+        heroData: '<'
+    },
     template: heroHtml,
     controller: HeroControll,
     controllerAs: 'vm'

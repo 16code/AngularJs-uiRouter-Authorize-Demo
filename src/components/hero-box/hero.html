@@ -1,10 +1,11 @@
 <div class="hero-wrap">
     <div class="intro">
-        <div class="intro-item">
+        <div class="intro-item"
+            ng-style="{'background-image':'url({{vm.heroData.background}})'}">
             <div class="row">
                 <div class="row-content">
-                    <h1>Webpack + Angular + UiRouter + ES6最佳实践!</h1>
-                    <p class="intro-text">用户登录验证以及路由访问权限控制演示程序</p>
+                    <h1>{{vm.heroData.subject}}</h1>
+                    <p class="intro-text">{{vm.heroData.intro}}</p>
                     <div class="btn-box">
                         <a href="" class="btn btn-fill btn-large btn-margin-right">Download</a>
                         <a href="" class="btn btn-accent btn-large">Repository</a>
