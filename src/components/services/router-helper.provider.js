@@ -1,5 +1,4 @@
 import angular from 'angular';
-
 const [handlingStateChangeError, hasOtherwise, stateCounts] = [Symbol(), Symbol(), Symbol()];
 class RouterHelper {
     constructor(config, $stateProvider, $urlRouterProvider, $rootScope, $state, LoginResolve) {
@@ -17,11 +16,9 @@ class RouterHelper {
             errors: 0,
             changes: 0
         };
-
         this.handleRoutingErrors();
         this.updateDocTitle();
     }
-
     configureStates(states, otherwisePath) {
         const self = this;
         states.forEach((state) => {
@@ -29,8 +26,9 @@ class RouterHelper {
             const data = state.config.data;
             if (data && data.requireLogin === true) {
                 state.config.resolve = angular.extend(
-                    state.config.resolve || {},
-                    { loginResolve: self.LoginResolve.login }
+                    state.config.resolve || {}, {
+                        loginResolve: self.LoginResolve.login
+                    }
                 );
             }
             state.config.resolve = angular.extend(state.config.resolve || {}, self.config.resolveAlways);
@@ -41,7 +39,6 @@ class RouterHelper {
             this.$urlRouterProvider.otherwise(otherwisePath);
         }
     }
-
     handleRoutingErrors() {
         // 错误路由处理
         this.$rootScope.$on('$stateChangeError',
@@ -52,7 +49,7 @@ class RouterHelper {
                 this[stateCounts].errors++;
                 this[handlingStateChangeError] = true;
                 const destination = (toState &&
-                    (toState.title || toState.name || toState.loadedTemplateUrl)) ||
+                        (toState.title || toState.name || toState.loadedTemplateUrl)) ||
                     'unknown target';
                 const errorMessage = (error && error.message) || error;
                 const msg = `Error routing to ${destination}.\nReason: ${errorMessage}.`;
@@ -63,7 +60,8 @@ class RouterHelper {
                         this.$state.prev = {
                             state: toState.name,
                             params: toParams
-                        }; this.$state.go('root.layout.login');
+                        };
+                        this.$state.go('root.layout.login');
                         break;
                     default:
                         this.$state.go('root.layout.home');
@@ -71,17 +69,14 @@ class RouterHelper {
             }
         );
     }
-
     handleRoutingChangeStart() {
         this.$rootScope.$on('$stateChangeStart', (event) => {
             console.log(event);
         });
     }
-
     getStates() {
         return this.$state.get();
     }
-
     updateDocTitle() {
         this.$rootScope.$on('$stateChangeSuccess',
             (event, toState) => {
@@ -96,23 +91,23 @@ class RouterHelper {
         );
     }
 }
-
 class RouterHelperProvider {
     constructor($locationProvider, $stateProvider, $urlRouterProvider) {
         'ngInject';
-        Object.assign(this, { $locationProvider, $stateProvider, $urlRouterProvider });
-
+        Object.assign(this, {
+            $locationProvider,
+            $stateProvider,
+            $urlRouterProvider
+        });
         this.config = {
             mainTitle: '',
             resolveAlways: {}
         };
         this.$locationProvider.html5Mode(true);
     }
-
     configure(cfg) {
         angular.extend(this.config, cfg);
     }
-
     $get($rootScope, $state, LoginResolve) {
         'ngInject';
         return new RouterHelper(
@@ -120,6 +115,4 @@ class RouterHelperProvider {
             $rootScope, $state, LoginResolve);
     }
 }
-
-
 export default RouterHelperProvider;
