@@ -1,37 +1,24 @@
 <hero-box hero-data="vm.heroData"></hero-box>
 <div class="learn-more">
-    <div class="row">
-        <div class="row-content buffer">
-            <h5 class="subject text-center">
-                工欲善其事必先利其器，在进行 Angular 的开发时，通常会结合 Webh5ack 和 ES6 一起进行。<br>
-                本项目讲的正是如何使用 AngularJs + Webpack + ES6 进行组合开发。<br>
-                本项目所涉及的代码 ，可以直接作为一个种子项目使用。<br>
-                项目内置了两个开发中比较常用的模块 用户 “登录验证” 以及 “路由鉴权” 功能。
-            </h5>
-
-            <div class="desc-row text-center">
-                <div class="desc-col">
-                    <h5>快速构建</h5>
-                    <p>快捷的构建AngularJs应用程序, 使用npm管理所有开发依赖.</p>
-<pre class="text-left">git clone https://github.com/16code/AngularJs-uiRouter-Authorize-Demo.git
-npm install -g webpack eslint
-cd AngularJs-uiRouter-Authorize-Demo
-npm install
-npm start
-</pre>
-                </div>
-                <div class="desc-col">
-                    <h5>组件式开发</h5>
-                    <p>组件式开发, 最后将组件组合成页面, 使用ocLazyload轻松实现按需加载.</p>
-<pre class="text-left">import myComponent from '../../components/myComponent';
-const module = angular.module('app.moduleName', [
-    myComponent.name
-]);
-export default module.name;
-</pre>
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h4 class="title">Categories</h4>
+            </div>
+            <div class="categories">
+                <div class="category"
+                    ng-repeat="item in vm.categories track by $index">
+                    <div class="wrapper">
+                        <a ui-sref="{{item.router}}" class="thumbnail">
+                            <i class="icon-category {{item.thumbnail}}"></i>
+                        </a>
+                        <div class="meta text-center">
+                            <h5 class="name">{{item.name}}</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
-<div style="height: 1000px;"></div>

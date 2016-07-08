@@ -1,20 +1,22 @@
-<div class="row">
-    <div class="header-bar row-content buffer">
-        <div class="flex-item left">
-            <div id="brand">
-                <h1><a href="#">AngularJs</a></h1>
+<div class="container">
+    <div class="row">
+        <div class="header-bar">
+            <div class="flex-item left">
+                <div id="brand">
+                    <h1><a href="#">AngularJs</a></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li ng-repeat="item in ['Home','Getting Started','Issue']">
+                            <a href="">{{item}}</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li ng-repeat="item in ['Home','Getting Started','Issue']">
-                        <a href="">{{item}}</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="flex-item right">
-            <a href=""
+            <div class="flex-item right">
+                <a href=""
                 class="btn btn-white btn-small">LOG IN</a>
+            </div>
         </div>
     </div>
 </div>
