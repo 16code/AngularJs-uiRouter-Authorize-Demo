@@ -44,6 +44,16 @@
             </div>
         </div>
         <div class="row">
+            <div class="section-title">
+                <h4 class="title">最新活动</h4>
+            </div>
+            <div class="ad-box">
+                <div class="ad-item" ng-repeat="ad in vm.ads">
+                    <img ng-src="{{ad}}" >
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <learn-more></learn-more>
         </div>
     </div>
