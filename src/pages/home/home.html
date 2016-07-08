@@ -1,24 +1,55 @@
 <hero-box hero-data="vm.heroData"></hero-box>
-<div class="learn-more">
-    <div class="container">
-        <div class="row">
-            <div class="section-title">
-                <h4 class="title">Categories</h4>
-            </div>
-            <div class="categories">
-                <div class="category"
-                    ng-repeat="item in vm.categories track by $index">
-                    <div class="wrapper">
-                        <a ui-sref="{{item.router}}" class="thumbnail">
-                            <i class="icon-category {{item.thumbnail}}"></i>
-                        </a>
-                        <div class="meta text-center">
-                            <h5 class="name">{{item.name}}</h5>
+<div class="bg-box">
+    <div class="category-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h4 class="title">商品分类</h4>
+                </div>
+                <div class="categories">
+                    <div class="category"
+                        ng-repeat="item in vm.categories track by $index">
+                        <div class="wrapper">
+                            <a ui-sref="{{item.router}}" class="thumbnail">
+                                <i class="icon-category {{item.thumbnail}}"></i>
+                            </a>
+                            <div class="meta text-center">
+                                <h5 class="name">{{item.name}}</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h4 class="title">最新活动</h4>
+            </div>
+            <div class="ad-box">
+                <div class="ad-item" ng-repeat="ad in vm.ads">
+                    <img ng-src="{{ad}}" >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="section-title">
+                <h4 class="title">推荐商品</h4>
+            </div>
+            <div class="products">
+                <div class="product" ng-repeat="i in vm.products">
+                    <img ng-src="{{i}}" >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="learn-more text-center">
+                <div class="btn-box">
+                    <h5>简单、高效、快捷的构建你的Angular应用程序, 获取代码</h5>
+                    <a href="" class="btn btn-black btn-sm">Repository</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
