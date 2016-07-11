@@ -3,6 +3,9 @@
     <div class="category-navigation">
         <div class="container">
             <div class="row">
+                <learn-more></learn-more>
+            </div>
+            <div class="row">
                 <div class="section-title">
                     <h4 class="title">商品分类</h4>
                 </div>
@@ -38,19 +41,10 @@
                 <h4 class="title">推荐商品</h4>
             </div>
             <div class="products">
-                <div class="product" ng-repeat="i in vm.products">
-                    <img ng-src="{{i}}" >
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="section-title">
-                <h4 class="title">最新活动</h4>
-            </div>
-            <div class="ad-box">
-                <div class="ad-item" ng-repeat="ad in vm.ads">
-                    <img ng-src="{{ad}}" >
-                </div>
+                <product-card ng-repeat="product in vm.products track by $index"
+                    product="product"
+                    class="product">
+                </product-card>
             </div>
         </div>
         <div class="row">

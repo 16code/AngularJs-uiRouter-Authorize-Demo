@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <img ng-src="{{vm.product.thumbnail}}" >
+    <p class="name">{{vm.product.name}}</p>
+    <i class="price">{{vm.product.price | currency: '$'}}</i>
+    <div class="handle">
+        <button type="button" class="btn btn-black btn-small add-cart" ng-click="vm.addToCart(vm.product);">添加到购物车</button>
+        <button type="button" class="btn btn-black btn-small add-favorite">收藏</button>
+    </div>
+    <ng-transclude></ng-transclude>
+</div>

@@ -5,7 +5,7 @@
 }
 .section-title {
     position: relative;
-    margin: 15px 15px 10px;
+    margin: 15px 10px 10px;
     .title {
         display: inline-block;
         padding-right: 20px;
@@ -32,7 +32,6 @@
     padding-top: 15px;
     .categories {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
     }
@@ -66,6 +65,16 @@
             font-size: 1.4rem;
         }
     }
+    @media (max-width: 65rem) {
+        .category {
+            width: 25%;
+        }
+    }
+    @media (max-width: 40rem) {
+        .category {
+            width: 50%;
+        }
+    }
 }
 .ad-box {
     display: flex;
@@ -83,16 +92,5 @@
                 transform: scale3d(1.1,1.1,1);
             }
         }
-    }
-}
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    .product {
-        width: 25%;
-        padding: 10px;
-        height: 313px;
-        margin-bottom: 10px;
-        overflow: hidden;
     }
 }

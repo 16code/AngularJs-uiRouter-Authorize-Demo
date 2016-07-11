@@ -1,5 +1,7 @@
 class HomeController {
-    constructor() {
+    constructor(CategoryApi, ProductsApi) {
+        'ngInject';
+        Object.assign(this, {CategoryApi, ProductsApi});
         this.heroData = {
             background: require('../../assets/images/hero.jpg'),
             subject: 'Webpack + Angular + UiRouter + ES6最佳实践!',
@@ -9,68 +11,20 @@ class HomeController {
             require('../../assets/images/ad-1.jpg'),
             require('../../assets/images/ad-2.jpg')
         ];
-        this.products = [
-            require('../../assets/images/1.jpg'),
-            require('../../assets/images/2.jpg'),
-            require('../../assets/images/3.jpg'),
-            require('../../assets/images/4.jpg'),
-            require('../../assets/images/5.jpg'),
-            require('../../assets/images/6.jpg'),
-            require('../../assets/images/7.jpg'),
-            require('../../assets/images/8.jpg')
-        ];
-        this.categories = [
-            {
-                name: '包包',
-                thumbnail: 'bag',
-                router: 'root.layout.home'
-            },
-            {
-                name: '礼服',
-                thumbnail: 'dress',
-                router: 'root.layout.home'
-            },
-            {
-                name: '眼镜',
-                thumbnail: 'glasses',
-                router: 'root.layout.home'
-            },
-            {
-                name: 'POLO衫',
-                thumbnail: 'polo',
-                router: 'root.layout.home'
-            },
-            {
-                name: 'T恤(男)',
-                thumbnail: 'shirt',
-                router: 'root.layout.home'
-            },
-            {
-                name: '裙子',
-                thumbnail: 'skirt',
-                router: 'root.layout.home'
-            },
-            {
-                name: '袜子',
-                thumbnail: 'sock',
-                router: 'root.layout.home'
-            },
-            {
-                name: '裤子',
-                thumbnail: 'trousers',
-                router: 'root.layout.home'
-            },
-            {
-                name: '背心',
-                thumbnail: 'vest',
-                router: 'root.layout.home'
-            },
-            {
-                name: 'T恤(女)',
-                thumbnail: 'women',
-                router: 'root.layout.home'
-            },
-        ];
+        this.activate();
+    }
+    activate() {
+        const CategoryPromise = this.CategoryApi.$get();
+        CategoryPromise.then((data) => {
+            this.categories = data;
+        });
+        this.getProducts();
+    }
+    getProducts() {
+        const ProductsPromise = this.ProductsApi.$hot();
+        ProductsPromise.then((data) => {
+            this.products = data;
+        });
     }
 }
 
