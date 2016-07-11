@@ -14,11 +14,14 @@ class HomeController {
         this.activate();
     }
     activate() {
+        this.getCategories();
+        this.getProducts();
+    }
+    getCategories() {
         const CategoryPromise = this.CategoryApi.$get();
         CategoryPromise.then((data) => {
             this.categories = data;
         });
-        this.getProducts();
     }
     getProducts() {
         const ProductsPromise = this.ProductsApi.$hot();
