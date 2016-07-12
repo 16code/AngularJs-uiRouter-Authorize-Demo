@@ -1,11 +1,11 @@
-<header id="page-header"
-    class="page-header transparent"
-    ng-class="{'transparent': transparentHeader, 'fixed-header': !transparentHeader}"
-    ui-view="header"></header>
-<div class="main-container">
-    <div class="page-main"
-        id="page-main"
-        ui-view="main"></div>
-</div>
-<footer class="page-footer"
-    ui-view="footer"></footer>
+<aside class="sidebar"
+    ui-view="sidebar">
+</aside>
+<main class="main-container">
+    <header class="page-header"
+        ui-view="header"></header>
+    <session class="page-main"
+        ui-view="main"></session>
+    <footer class="page-footer"
+        ui-view="footer"></footer>
+</main>

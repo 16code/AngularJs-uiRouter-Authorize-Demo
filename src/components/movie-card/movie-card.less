@@ -1,0 +1,38 @@
+.movie {
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    .thumbnail {
+        display: block;
+        width: 100%;
+        background-color: rgb(45, 48, 59);
+        height: auto;
+        min-height: 200px;
+        max-height: 280px;
+        border-radius: 5px;
+        border: 1px solid #000;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        img {
+            opacity: 0;
+        }
+    }
+    .meta {
+        font-size: 1rem;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        .name {
+            max-width: 75%;
+            font-size: 1.2rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .fa-star {
+            color: rgb(238, 193, 65);
+        }
+    }
+}

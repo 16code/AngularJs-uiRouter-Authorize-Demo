@@ -1,12 +1,38 @@
-.container {
-    width: 100%;
-    max-width: 85.33333rem;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+html, body {
+    background-color: rgb(33, 36, 46);
+    height: 100%;
+    color: rgb(226, 226, 226);
 }
-.row {
-    margin-right: -15px;
-    margin-left: -15px;
+.page-wrapper {
+    display: flex;
+}
+.sidebar {
+    background-color: rgb(38, 42, 48);
+    width: 74px;
+    min-width: 74px;
+    height: 100vh;
+    box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 9;
+}
+.main-container {
+    flex: auto;
+    height: 100vh;
+    overflow: scroll;
+}
+.page-main {
+    display: block;
+    padding: 15px 30px;
+}
+.session-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+        color: rgb(220, 220, 220);
+        font-size: 1rem;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

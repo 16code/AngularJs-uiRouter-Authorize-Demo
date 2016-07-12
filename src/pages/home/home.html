@@ -1,54 +1,36 @@
-<hero-box hero-data="vm.heroData"></hero-box>
-<div class="bg-box">
-    <div class="category-navigation">
-        <div class="container">
-            <div class="row">
-                <learn-more></learn-more>
-            </div>
-            <div class="row">
-                <div class="section-title">
-                    <h4 class="title">商品分类</h4>
-                </div>
-                <div class="categories">
-                    <div class="category"
-                        ng-repeat="item in vm.categories track by $index">
-                        <div class="wrapper">
-                            <a ui-sref="{{item.router}}" class="thumbnail">
-                                <i class="icon-category {{item.thumbnail}}"></i>
-                            </a>
-                            <div class="meta text-center">
-                                <h5 class="name">{{item.name}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="section-title">
-                <h4 class="title">最新活动</h4>
-            </div>
-            <div class="ad-box">
-                <div class="ad-item" ng-repeat="ad in vm.ads">
-                    <img ng-src="{{ad}}" >
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="section-title">
-                <h4 class="title">推荐商品</h4>
-            </div>
-            <div class="products">
-                <product-card ng-repeat="product in vm.products track by $index"
-                    product="product"
-                    class="product">
-                </product-card>
-            </div>
-        </div>
-        <div class="row">
-            <learn-more></learn-more>
-        </div>
-    </div>
+<div class="session-title">
+    <h5>院线热播</h5>
+    <a href="" class="more">更多...</a>
+</div>
+<loading-bar></loading-bar>
+<div class="movies-wrapper">
+    <movie-card ng-repeat="movie in vm.popularMovies track by movie.id"
+        movie="movie"
+        class="movie-item"
+        ng-if="movie.poster_path" />
+    </movie-card>
+</div>
+<div class="session-title">
+    <h5>即将上映</h5>
+    <a href="" class="more">更多...</a>
+</div>
+<loading-bar></loading-bar>
+<div class="movies-wrapper">
+    <movie-card ng-repeat="movie in vm.upComingMovies track by movie.id"
+        movie="movie"
+        class="movie-item"
+        ng-if="movie.poster_path" />
+    </movie-card>
+</div>
+<div class="session-title">
+    <h5>排行榜</h5>
+    <a href="" class="more">更多...</a>
+</div>
+<loading-bar></loading-bar>
+<div class="movies-wrapper">
+    <movie-card ng-repeat="movie in vm.topRatedMovies track by movie.id"
+        movie="movie"
+        class="movie-item"
+        ng-if="movie.poster_path" />
+    </movie-card>
 </div>

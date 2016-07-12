@@ -1,0 +1,13 @@
+<div class="movie">
+    <a ui-sref="#" class="thumbnail" style="background-image: url(http://image.tmdb.org/t/p/w342/{{vm.movie.poster_path}})">
+        <img ng-src="http://image.tmdb.org/t/p/w342/{{vm.movie.poster_path}}" >
+    </a>
+    <div class="meta">
+        <h5 class="name">{{vm.movie.title}}</h5>
+        <p class="star">
+            <i class="fa fa-star"></i>
+            <span>{{vm.movie.vote_average | voteFilter}}</span>
+        </p>
+    </div>
+    <ng-transclude></ng-transclude>
+</div>

@@ -1,22 +1,13 @@
-<div class="container">
-    <div class="row">
-        <div class="header-bar">
-            <div class="flex-item left">
-                <div id="brand">
-                    <h1><a ui-sref="root.layout.home">AngularJs</a></h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li ng-repeat="item in ['Home','Getting Started','Issue']">
-                            <a ui-sref="root.layout.products">{{item}}</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="flex-item right">
-                <a href=""
-                class="btn btn-white btn-small">LOG IN</a>
-            </div>
-        </div>
+<div class="head-wrapper">
+    <div class="toolbox">
+        <form class="search-form">
+            <i class="fa fa-search"></i>
+            <input class="search-input" type="search" name="search" placeholder="Search by movies">
+        </form>
+    </div>
+    <div class="account">
+        <button class="btn-login" type="button">
+            <i class="fa fa-user"></i>
+        </button>
     </div>
 </div>

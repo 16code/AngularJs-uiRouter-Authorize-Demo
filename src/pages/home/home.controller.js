@@ -1,32 +1,24 @@
 class HomeController {
-    constructor(CategoryApi, ProductsApi) {
+    constructor($q, MoviesApi) {
         'ngInject';
-        Object.assign(this, {CategoryApi, ProductsApi});
-        this.heroData = {
-            background: require('../../assets/images/hero.jpg'),
-            subject: 'Webpack + Angular + UiRouter + ES6最佳实践!',
-            intro: '简单、高效、快捷的构建你的Angular应用程序'
-        };
-        this.ads = [
-            require('../../assets/images/ad-1.jpg'),
-            require('../../assets/images/ad-2.jpg')
-        ];
+        Object.assign(this, {$q, MoviesApi});
         this.activate();
     }
     activate() {
-        this.getCategories();
-        this.getProducts();
-    }
-    getCategories() {
-        const CategoryPromise = this.CategoryApi.$get();
-        CategoryPromise.then((data) => {
-            this.categories = data;
-        });
-    }
-    getProducts() {
-        const ProductsPromise = this.ProductsApi.$hot();
-        ProductsPromise.then((data) => {
-            this.products = data;
+        const popularMoviesPromise = this.MoviesApi.$popular();
+        const upComingMoviesPromise = this.MoviesApi.$upComing();
+        const topRatedMoviesPromise = this.MoviesApi.$topRated();
+        return this.$q.all({
+            popularMovies: popularMoviesPromise,
+            upComingMovies: upComingMoviesPromise,
+            topRatedMovies: topRatedMoviesPromise
+        }).then((resp) => {
+            console.log(resp);
+            this.popularMovies = resp.popularMovies.slice(0, 8);
+            this.upComingMovies = resp.upComingMovies.slice(0, 8);
+            this.topRatedMovies = resp.topRatedMovies.slice(0, 8);
+        }, (err) => {
+            console.log(err);
         });
     }
 }

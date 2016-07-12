@@ -1,15 +1,18 @@
 import RouterHelperProvider from '../services/router-helper.provider';
 import LoginResolveService from '../services/user-resolve.service';
-import CategoryService from '../services/categories.service';
-import ProductsService from '../services/products.service';
+import MoviesService from '../services/movies.service';
+import HttpInterceptor from '../services/http-interceptor.service';
+import loadingBar from '../loading-bar';
 // config
 import appConfig from './config';
+// constant
+import appConstant from './constant.config';
 // run
 import appRun from './run';
-export default angular.module('app.common', [])
+export default angular.module('app.common', [appConstant.name, loadingBar.name])
     .service('LoginResolve', LoginResolveService)
-    .service('CategoryApi', CategoryService)
-    .service('ProductsApi', ProductsService)
+    .service('MoviesApi', MoviesService)
+    .factory('HttpInterceptor', HttpInterceptor)
     .provider('RouterHelper', RouterHelperProvider)
     .config(appConfig)
     .run(appRun);
