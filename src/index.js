@@ -8,13 +8,15 @@ import oclazyload from 'oclazyload';
 // pages
 import layoutModule from './components/_layout';
 import homeRouter from './pages/home/home.router';
+import productsRouter from './pages/products/products.router';
 
 // 模块
 const modules = [
     uiRouter,
     oclazyload,
     layoutModule.name,
-    homeRouter.name
+    homeRouter.name,
+    productsRouter.name
 ];
 
 // global __APP_NAME__:true

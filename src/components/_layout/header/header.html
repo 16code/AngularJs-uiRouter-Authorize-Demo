@@ -3,12 +3,12 @@
         <div class="header-bar">
             <div class="flex-item left">
                 <div id="brand">
-                    <h1><a href="#">AngularJs</a></h1>
+                    <h1><a ui-sref="root.layout.home">AngularJs</a></h1>
                 </div>
                 <nav>
                     <ul>
                         <li ng-repeat="item in ['Home','Getting Started','Issue']">
-                            <a href="">{{item}}</a>
+                            <a ui-sref="root.layout.products">{{item}}</a>
                         </li>
                     </ul>
                 </nav>

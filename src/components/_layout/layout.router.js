@@ -1,6 +1,6 @@
 import mainLayoutHtml from './page.layout.html';
-import { headerHtml } from './header';
-import { footerHtml } from './footer';
+import {headerHtml} from './header';
+import {footerHtml} from './footer';
 function appLayoutRouter(RouterHelper) {
     'ngInject';
     RouterHelper.configureStates(getStates());
