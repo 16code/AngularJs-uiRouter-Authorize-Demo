@@ -17,7 +17,10 @@ class ProductsService {
         return this.$source({movie_type: 'popular'});
     }
     // 即将上线
-    $upComing() {
+    $upComing(page) {
+        if (page) {
+            return this.$source({movie_type: 'upcoming', page});
+        }
         return this.$source({movie_type: 'upcoming'});
     }
     // api数据处理

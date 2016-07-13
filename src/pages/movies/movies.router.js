@@ -15,7 +15,7 @@ function getStates() {
         {
             state: 'root.layout.movies.upcoming',
             config: {
-                url: '/upcoming',
+                url: '/upcoming?page',
                 views: {
                     'main@root': {
                         templateProvider: ['$q', ($q) => {
