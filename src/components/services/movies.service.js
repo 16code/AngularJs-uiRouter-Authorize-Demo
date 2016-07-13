@@ -22,11 +22,15 @@ class ProductsService {
     }
     // api数据处理
     $source(movieType) {
-        const api = this.$resource(`${this.API}/movie/:movie_type`);
+        const api = this.$resource(`${this.API}/movie/:movie_type`, {}, {
+            get: {
+                cache: true
+            }
+        });
         const deferred = this.$q.defer();
         const promise = api.get(movieType).$promise;
         promise.then((resp) => {
-            deferred.resolve(resp.results);
+            deferred.resolve(resp);
         }, () => {
             deferred.reject('数据请求失败');
         });

@@ -8,7 +8,7 @@ import ngResource from 'angular-resource';
 // pages
 import layoutModule from './components/_layout';
 import homeRouter from './pages/home/home.router';
-import productsRouter from './pages/products/products.router';
+import moviesRouter from './pages/movies/movies.router';
 
 // 模块
 const modules = [
@@ -17,7 +17,7 @@ const modules = [
     ngResource,
     layoutModule.name,
     homeRouter.name,
-    productsRouter.name
+    moviesRouter.name
 ];
 
 // global __APP_NAME__:true

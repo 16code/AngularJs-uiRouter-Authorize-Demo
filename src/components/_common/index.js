@@ -9,6 +9,7 @@ import appConfig from './config';
 import appConstant from './constant.config';
 // run
 import appRun from './run';
+
 export default angular.module('app.common', [appConstant.name, loadingBar.name])
     .service('LoginResolve', LoginResolveService)
     .service('MoviesApi', MoviesService)

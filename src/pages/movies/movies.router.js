@@ -1,4 +1,4 @@
-function apppProductsRun(RouterHelper) {
+function apppMoviesRun(RouterHelper) {
     'ngInject';
     RouterHelper.configureStates(getStates());
 }
@@ -6,24 +6,31 @@ function apppProductsRun(RouterHelper) {
 function getStates() {
     return [
         {
-            state: 'root.layout.products',
+            state: 'root.layout.movies',
             config: {
-                url: '/products',
+                url: '/movies',
+                abstract: true
+            }
+        },
+        {
+            state: 'root.layout.movies.upcoming',
+            config: {
+                url: '/upcoming',
                 views: {
                     'main@root': {
                         templateProvider: ['$q', ($q) => {
                             return $q((resolve) => {
                                 require.ensure([], () => {
-                                    resolve(require('./products.html'));
-                                }, 'products');
+                                    resolve(require('./upcoming/upcoming.html'));
+                                }, 'upcomingMovies');
                             });
                         }],
-                        controller: 'ProductsController as vm'
+                        controller: 'upComingMoviesController as vm'
                     }
                 },
                 data: {
-                    title: 'Products',
-                    className: 'products'
+                    title: '即将上映',
+                    className: 'upcoming'
                 },
                 resolve: {
                     loadModule: ['$q', '$ocLazyLoad', ($q, $ocLazyLoad) => {
@@ -31,7 +38,7 @@ function getStates() {
                             require.ensure([], () => {
                                 $ocLazyLoad.load({name: require('./index').default});
                                 resolve();
-                            }, 'products');
+                            }, 'upcomingMovies');
                         });
                     }]
                 }
@@ -40,5 +47,5 @@ function getStates() {
     ];
 }
 
-export default angular.module('app.routes.products', [])
-    .run(apppProductsRun);
+export default angular.module('app.routes.movies', [])
+    .run(apppMoviesRun);
