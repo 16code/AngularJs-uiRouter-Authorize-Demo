@@ -48,7 +48,7 @@ if (isProduct) {
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+            sourceMap: false,
             comments: false,
             compress: {
                 warnings: false,
@@ -63,7 +63,7 @@ if (isProduct) {
 }
 const webpackConfig = {
     entry: {
-        app: ['./src/index.js'],
+        app: ['./src/index'],
         // 将第三方库打包进 vendor
         vendor: [
             // angular
@@ -86,6 +86,7 @@ const webpackConfig = {
         extensions: ['', '.webpack.js', '.web.js', '.js', '.ejs', '.css', '.less', '.png', '.jpg', '.gif', '.svg']
     },
     noParse: /node_modules/,
+    cache: true,
     module: {
         preLoaders: [{
             test: /\.js$/,
