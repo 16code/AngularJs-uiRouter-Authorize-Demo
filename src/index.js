@@ -3,9 +3,9 @@ import './styles/ui.less';
 
 // 全局依赖模块
 import uiRouter from 'angular-ui-router';
-import oclazyload from 'oclazyload';
 import ngResource from 'angular-resource';
 import ngAnimate from 'angular-animate';
+import 'oclazyload';
 // pages
 import layoutModule from './components/_layout';
 import homeRouter from './pages/home/home.router';
@@ -14,7 +14,7 @@ import moviesRouter from './pages/movies/movies.router';
 // 模块
 const modules = [
     uiRouter,
-    oclazyload,
+    'oc.lazyLoad',
     ngResource,
     ngAnimate,
     layoutModule.name,

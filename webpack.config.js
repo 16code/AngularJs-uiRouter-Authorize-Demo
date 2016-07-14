@@ -48,7 +48,7 @@ if (isProduct) {
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false,
+            sourceMap: true,
             comments: false,
             compress: {
                 warnings: false,
@@ -80,14 +80,12 @@ const webpackConfig = {
     resolve: {
         root: path.resolve('src'),
         alias: {
-            angular: nodeModulesPath('/angular/index'),
-            'angular-ui-router': nodeModulesPath('/angular-ui-router/release/angular-ui-router.min'),
-            oclazyload: nodeModulesPath('/oclazyload/dist/ocLazyLoad.min'),
-            'angular-resource': nodeModulesPath('/angular-resource/index')
+            angular: nodeModulesPath('/angular/index')
         },
         modulesDirectories: ['bower_components', 'node_modules'],
         extensions: ['', '.webpack.js', '.web.js', '.js', '.ejs', '.css', '.less', '.png', '.jpg', '.gif', '.svg']
     },
+    noParse: /node_modules/,
     module: {
         preLoaders: [{
             test: /\.js$/,

@@ -1,6 +1,6 @@
 function appConfig(RouterHelperProvider, $resourceProvider, $httpProvider) {
     'ngInject';
-    RouterHelperProvider.configure({mainTitle: 'AngularJs uiRouter Authorize Demo'});
+    RouterHelperProvider.configure({mainTitle: 'AngularJs Movie App'});
     // 请求的资源去掉末尾反斜杠
     $resourceProvider.defaults.stripTrailingSlashes = true;
     // http 拦截注入

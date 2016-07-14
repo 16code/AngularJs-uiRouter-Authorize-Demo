@@ -11,7 +11,8 @@
     "start": "webpack-dev-server --no-info --quiet --mock",
     "build": "rm -rf ./dist && webpack --progress --prod",
     "precommit": "eslint --cache -c .eslintrc --quiet --ignore-path .eslintignore src/**/*.js",
-    "test": "npm test"
+    "test": "npm test",
+    "server": "node ./server.js"
   },
   "repository": {
     "type": "git",
