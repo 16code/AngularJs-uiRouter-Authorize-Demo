@@ -43,6 +43,38 @@ function getStates() {
                     }]
                 }
             }
+        },
+        {
+            state: 'root.layout.movies.popular',
+            config: {
+                url: '/popular?page',
+                views: {
+                    'main@root': {
+                        templateProvider: ['$q', ($q) => {
+                            return $q((resolve) => {
+                                require.ensure([], () => {
+                                    resolve(require('./popular/popular.html'));
+                                }, 'popularMovies');
+                            });
+                        }],
+                        controller: 'popularMoviesController as vm'
+                    }
+                },
+                data: {
+                    title: '推荐电影',
+                    className: 'popular'
+                },
+                resolve: {
+                    loadModule: ['$q', '$ocLazyLoad', ($q, $ocLazyLoad) => {
+                        return $q((resolve) => {
+                            require.ensure([], () => {
+                                $ocLazyLoad.load({name: require('./index').default});
+                                resolve();
+                            }, 'popularMovies');
+                        });
+                    }]
+                }
+            }
         }
     ];
 }
