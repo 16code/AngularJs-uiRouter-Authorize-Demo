@@ -1,16 +1,15 @@
-<loading-bar></loading-bar>
-<div ng-show="vm.upComingMovies.length">
-    <div class="dashboard-session">
-        <div class="session-title">
-            <h5 class="name">即将上映 <label class="label label-success">{{vm.totalResults}}</label></h5>
-        </div>
-        <div class="movies-wrapper">
-            <movie-card ng-repeat="movie in vm.upComingMovies track by movie.id"
-                movie="movie"
-                class="movie-item"
-                ng-if="movie.poster_path">
-            </movie-card>
-        </div>
+<div class="dashboard-session">
+    <div class="session-title">
+        <h5 class="name">即将上映 <label class="label label-success" ng-if="vm.totalResults">{{vm.totalResults}}</label></h5>
     </div>
-    <pagination config="vm.paginationConfig"></pagination>
+    <loading-bar></loading-bar>
+    <div class="movies-wrapper"
+        ng-show="vm.upComingMovies.length">
+        <movie-card ng-repeat="movie in vm.upComingMovies track by movie.id"
+            movie="movie"
+            class="movie-item"
+            ng-if="movie.poster_path">
+        </movie-card>
+    </div>
 </div>
+<pagination config="vm.paginationConfig" ng-show="vm.upComingMovies"></pagination>

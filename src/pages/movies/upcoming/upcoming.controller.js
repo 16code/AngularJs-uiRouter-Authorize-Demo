@@ -7,7 +7,6 @@ class upComingMoviesController {
             itemsPerPage: 20,
             pagesLength: 9,
             pageOnChange: () => {
-                // this.$upComingMovies();
                 this.$state.go($state.current, {page: this.paginationConfig.currentPage});
             }
         };
@@ -17,7 +16,7 @@ class upComingMoviesController {
         this.$upComingMovies();
     }
     $upComingMovies() {
-        const popularMoviesPromise = this.MoviesApi.$upComing(this.paginationConfig.currentPage);
+        const popularMoviesPromise = this.MoviesApi.$topRated(this.paginationConfig.currentPage);
         popularMoviesPromise.then((resp) => {
             this.upComingMovies = resp.results;
             this.totalResults = resp.total_results;

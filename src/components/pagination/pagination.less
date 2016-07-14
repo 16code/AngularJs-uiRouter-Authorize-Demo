@@ -4,46 +4,42 @@
 .pagination {
     text-align: center;
     li {
+        font-size: 1.6rem;
+        line-height: 1;
         display: inline-block;
-        margin: 0 .2em;
-        font-size: 1.4rem;
-        span {
-            cursor: pointer;
-            -webkit-user-select: none;
-            user-select: none;
-            border: 1px solid;
-            border-radius: 0.25em;
-            padding: 0.6em 0.8em;
-            display: inline-block;
-            line-height: 1;
-            color: #a8a8a8;
-            background: #2d303b;
-            border-color: #181818;
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-            &:hover {
-                color: #eec141;
-            }
-            &:active {
-                transform: scale(0.9);
-            }
+        margin: 0 0.2em;
+        padding: 0.6em 0.8em;
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+        color: #a8a8a8;
+        border: 1px solid;
+        border-color: #181818;
+        border-radius: 0.25em;
+        background: #2d303b;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, .1) inset;
+        &:hover {
+            color: #eec141;
+        }
+        &:active {
+            transform: scale(.9);
         }
         &.disabled {
-            span {
-                cursor: not-allowed;
-                opacity: .8;
-                &:active {
-                    transform:  scale(1);
-                }
+            cursor: not-allowed;
+            opacity: 0.8;
+            &:active {
+                transform: scale(1);
             }
         }
+        &.separate {
+            pointer-events: none;
+        }
         &.current {
-            span {
-                background-color: #eec141;
-                border-color: #000;
-                color: #fff;
-                pointer-events: none;
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.42) inset;
-            }
+            pointer-events: none;
+            color: #fff;
+            border-color: #000;
+            background-color: #eec141;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, .3) inset;
         }
     }
 }

@@ -5,6 +5,7 @@ import './styles/ui.less';
 import uiRouter from 'angular-ui-router';
 import oclazyload from 'oclazyload';
 import ngResource from 'angular-resource';
+import ngAnimate from 'angular-animate';
 // pages
 import layoutModule from './components/_layout';
 import homeRouter from './pages/home/home.router';
@@ -15,6 +16,7 @@ const modules = [
     uiRouter,
     oclazyload,
     ngResource,
+    ngAnimate,
     layoutModule.name,
     homeRouter.name,
     moviesRouter.name

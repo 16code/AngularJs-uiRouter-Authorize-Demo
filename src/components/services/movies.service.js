@@ -5,23 +5,20 @@ class ProductsService {
         this.products = [];
     }
     // 最新电影
-    $topRated() {
-        return this.$source({movie_type: 'top_rated'});
+    $topRated(page) {
+        return this.$source({movie_type: 'top_rated', page});
     }
     // 获取电影数据库上已上线电影
-    $nowPlaying() {
-        return this.$source({movie_type: 'now_playing'});
+    $nowPlaying(page) {
+        return this.$source({movie_type: 'now_playing', page});
     }
     // 获取电影数据库上流行的电影列表
-    $popular() {
-        return this.$source({movie_type: 'popular'});
+    $popular(page) {
+        return this.$source({movie_type: 'popular', page});
     }
     // 即将上线
     $upComing(page) {
-        if (page) {
-            return this.$source({movie_type: 'upcoming', page});
-        }
-        return this.$source({movie_type: 'upcoming'});
+        return this.$source({movie_type: 'upcoming', page});
     }
     // api数据处理
     $source(movieType) {
