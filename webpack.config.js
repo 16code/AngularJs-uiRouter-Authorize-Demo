@@ -63,7 +63,7 @@ if (isProduct) {
 }
 const webpackConfig = {
     entry: {
-        app: ['./src/index'],
+        app: ['./src/index.js'],
         // 将第三方库打包进 vendor
         vendor: [
             // angular
