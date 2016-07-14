@@ -1,9 +1,9 @@
 <div class="movie">
     <div class="thumbnail">
-        <img ng-src="{{$root.image_uri}}/w342{{vm.movie.poster_path}}" >
+        <img imgload="{{$root.image_uri}}/w342{{vm.movie.poster_path}}">
         <p class="play">
             <a href="">
-                <i class="fa fa-play"></i>
+                <i class="icons icon-control-play"></i>
             </a>
         </p>
     </div>
@@ -11,7 +11,7 @@
         <h5 class="name">{{vm.movie.title}}</h5>
         <p class="genre">{{vm.movie.genre_ids | parseGenre}}</p>
         <p class="star">
-            <i class="fa fa-star"></i>
+            <i class="icons icon-star"></i>
             <span>{{vm.movie.vote_average | voteFilter}}</span>
         </p>
     </div>

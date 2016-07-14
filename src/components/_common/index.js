@@ -4,6 +4,7 @@ import MoviesService from '../services/movies.service';
 import HttpInterceptor from '../services/http-interceptor.service';
 import loadingBar from '../loading-bar';
 import uiButterbar from '../ui-butterbar';
+import imgLoad from '../img-load';
 // config
 import appConfig from './config';
 // constant
@@ -11,7 +12,7 @@ import appConstant from './constant.config';
 // run
 import appRun from './run';
 
-export default angular.module('app.common', [appConstant.name, loadingBar.name, uiButterbar.name])
+export default angular.module('app.common', [appConstant.name, loadingBar.name, uiButterbar.name, imgLoad.name])
     .service('LoginResolve', LoginResolveService)
     .service('MoviesApi', MoviesService)
     .factory('HttpInterceptor', HttpInterceptor)

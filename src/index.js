@@ -1,5 +1,6 @@
 // base style
 import './styles/ui.less';
+import 'simple-line-icons/css/simple-line-icons.css';
 
 // 全局依赖模块
 import uiRouter from 'angular-ui-router';
