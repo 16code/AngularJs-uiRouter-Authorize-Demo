@@ -18,6 +18,7 @@ class RouterHelper {
         };
         this.handleRoutingErrors();
         this.updateDocTitle();
+        this.handleRoutingChangeStart();
     }
     configureStates(states, otherwisePath) {
         const self = this;
@@ -70,8 +71,12 @@ class RouterHelper {
         );
     }
     handleRoutingChangeStart() {
-        this.$rootScope.$on('$stateChangeStart', (event) => {
-            console.log(event);
+        this.$rootScope.$on('$stateChangeStart', (event, toState) => {
+            if (toState.redirectTo) {
+                event.preventDefault();
+                const redirectToUri = this.$state.href(toState.redirectTo, {}, {absolute: true});
+                window.location.href = redirectToUri;
+            }
         });
     }
     getStates() {

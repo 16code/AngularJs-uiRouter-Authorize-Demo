@@ -4,15 +4,17 @@
     </div>
     <nav class="navgiation">
         <ul>
-            <li class="text-center" ui-sref-active="active"><a ui-sref="root.layout.home"><i class="icons icon-speedometer"></i><span>仪表盘</span></a></li>
-            <li class="text-center" ui-sref-active="active"><a ui-sref="root.layout.movies.popular"><i class="icons icon-fire"></i><span>推荐电影</span></a></li>
-            <li class="text-center" ui-sref-active="active"><a ui-sref="root.layout.movies.upcoming"><i class="icons icon-calendar"></i><span>即将上映</span></a></li>
-            <li class="text-center"><a href=""><i class="icons icon-film"></i><span>所有电影</span></a></li>
-            <li class="text-center"><a href=""><i class="icons icon-star"></i><span>收藏夹</span></a></li>
-            <li class="text-center"><a href=""><i class="icons icon-chart"></i><span>浏览历史</span></a></li>
+            <li class="text-center"
+                ng-repeat="nav in vm.navigations track by $index"
+                ui-sref-active="active">
+                <a ui-sref="{{nav.uri}}">
+                    <i class="icons icon-{{nav.icon}}"></i>
+                    <span>{{nav.name}}</span>
+                </a>
+            </li>
         </ul>
         <ul class="setting">
-            <li class="text-center"><a href=""><i class="icons icon-settings"></i></a></li>
+            <li class="text-center"><a ui-sref="root.layout.movies"><i class="icons icon-settings"></i></a></li>
         </ul>
     </nav>
 </div>

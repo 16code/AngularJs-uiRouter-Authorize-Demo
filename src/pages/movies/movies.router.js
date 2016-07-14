@@ -9,7 +9,8 @@ function getStates() {
             state: 'root.layout.movies',
             config: {
                 url: '/movies',
-                abstract: true
+                abstract: false,
+                redirectTo: 'root.layout.movies.upcoming'
             }
         },
         {

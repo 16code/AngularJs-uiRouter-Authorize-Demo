@@ -1,5 +1,7 @@
 import './sidebar.less';
 import sidebarHtml from './sidebar.html';
-const headerModule = angular.module('app.components.sidebar', []);
+import SidebarController from './sidebar.controller';
+const sidebarModule = angular.module('app.components.sidebar', [])
+    .controller(SidebarController.name, SidebarController);
 
-export {headerModule, sidebarHtml};
+export {sidebarModule, sidebarHtml};

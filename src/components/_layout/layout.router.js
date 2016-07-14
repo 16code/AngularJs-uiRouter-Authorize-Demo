@@ -21,7 +21,8 @@ function getStates() {
                 abstract: true,
                 views: {
                     sidebar: {
-                        template: sidebarHtml
+                        template: sidebarHtml,
+                        controller: 'SidebarController as vm'
                     },
                     header: {
                         template: headerHtml,
