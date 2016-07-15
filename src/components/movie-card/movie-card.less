@@ -34,11 +34,6 @@
         border-radius: 5px;
         border: 1px solid #000;
         overflow: hidden;
-        background-clip: border-box;
-        background-repeat: no-repeat;
-        background-size: 32px 32px;
-        background-position: center center;
-        background-image: url('../../assets/loading.svg');
         position: relative;
         color: #fff;
         &.loaded {
@@ -50,6 +45,11 @@
             border-radius: 5px;
         }
 
+    }
+    @media screen and (max-width: 1920px) {
+        .thumbnail {
+            height: 198px;
+        }
     }
     @media screen and (max-width: 1366px) {
         .thumbnail {

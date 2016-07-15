@@ -24,7 +24,11 @@ html, body {
 }
 .page-main {
     display: block;
-    padding: 30px;
+}
+:not(.profile-page){
+    .page-main {
+        padding: 30px;
+    }
 }
 .session-title {
     display: flex;

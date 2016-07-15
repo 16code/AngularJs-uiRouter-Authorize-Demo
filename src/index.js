@@ -11,6 +11,7 @@ import 'oclazyload';
 import layoutModule from './components/_layout';
 import homeRouter from './pages/home/home.router';
 import moviesRouter from './pages/movies/movies.router';
+import moviesProfileRouter from './pages/movie-profile/movie-profile.router';
 
 // 模块
 const modules = [
@@ -20,7 +21,8 @@ const modules = [
     ngAnimate,
     layoutModule.name,
     homeRouter.name,
-    moviesRouter.name
+    moviesRouter.name,
+    moviesProfileRouter.name
 ];
 
 // global __APP_NAME__:true

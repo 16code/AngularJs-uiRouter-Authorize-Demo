@@ -1,0 +1,23 @@
+<div class="movie-profile">
+    <div class="basic-info">
+        <div class="poster-box">
+            <div class="backdrop thumbnail">
+                <img class="poster-background" ng-src="{{$root.image_uri}}/w780{{vm.movie.backdrop_path}}">
+            </div>
+            <div class="poster">
+                <img ng-src="{{$root.image_uri}}/w342{{vm.movie.poster_path}}">
+            </div>
+            <div class="overview">
+                <h4 class="title">{{vm.movie.title}} ({{vm.movie.original_title}})</h4>
+                <p><span>发行时间: {{vm.movie.release_date}}</span></p>
+                <p>
+                    <span ng-if="vm.movie.spoken_languages.name">语言: {{vm.movie.spoken_languages.name}}</span>
+                </p>
+                <p>类型:<span ng-repeat="genre in vm.movie.genres">
+                    {{genre.name}}
+                </span></p>
+                <p class="overview-text" ng-if="vm.movie.overview">剧情简介: {{vm.movie.overview}}</p>
+            </div>
+        </div>
+    </div>
+</div>

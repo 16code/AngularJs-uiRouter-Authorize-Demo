@@ -1,8 +1,8 @@
 <div class="movie">
-    <div class="thumbnail">
+    <div class="thumbnail lazyimg">
         <img imgload="{{$root.image_uri}}/w342{{vm.movie.poster_path}}">
         <p class="play">
-            <a href="">
+            <a ui-sref="root.layout.movieProfile({id: vm.movie.id, name: vm.movie.title})">
                 <i class="icons icon-control-play"></i>
             </a>
         </p>
